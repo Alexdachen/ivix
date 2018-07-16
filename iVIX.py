@@ -213,7 +213,7 @@ def calDayVIX(vixDate):
     # 差值得到并返回VIX指数(%)
     w = (T_next - 30.0/365.0)/(T_next - T_near)
     vix = T_near*w*near_sigma + T_next*(1 - w)*next_sigma
-    return 100*np.sqrt(vix*365.0/30.0)
+    return 100*np.sqrt(abs(vix)*365.0/30.0)
 
 
 ivix = []
