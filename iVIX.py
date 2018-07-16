@@ -178,9 +178,7 @@ def changeste(t):
 def calDayVIX(vixDate):
     # 利用CBOE的计算方法，计算历史某一日的未来30日期权波动率指数VIX
     """
-    params：opt_info：期权合约代码
-            optionVarSecID：510050.XSHG
-            vixDate：计算VIX的日期  '%Y/%m/%d' 字符串格式
+    params：vixDate：计算VIX的日期  '%Y/%m/%d' 字符串格式
     return：VIX结果
     """
 
