@@ -2,7 +2,7 @@
 """
 Created on Thu Jul 12 09:52:52 2018
 
-@author: J
+@author: 量小白
 """
 from datetime import datetime
 import numpy as np
