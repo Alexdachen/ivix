@@ -213,10 +213,16 @@ def calDayVIX(vixDate):
     vix = T_near*w*near_sigma + T_next*(1 - w)*next_sigma
     return 100*np.sqrt(abs(vix)*365.0/30.0)
 
-
 ivix = []
 for day in tradeday['DateTime']:
     ivix.append(calDayVIX(day))
+    
+from pyecharts import Line
+attr = true_ivix[u'日期'].tolist()
+line = Line(u"中国波指")
+line.add("中证指数发布", attr, true_ivix[u'收盘价(元)'].tolist(), mark_point=["max"])
+line.add("手动计算", attr, ivix, mark_line=["max",'average'])
+line.render()
 
 
 
