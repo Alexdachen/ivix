@@ -25,5 +25,5 @@ pip install pyecharts
 
 
 # License
-
+MIT
 
