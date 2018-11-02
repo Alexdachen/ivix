@@ -216,7 +216,7 @@ def calDayVIX(vixDate):
 ivix = []
 for day in tradeday['DateTime']:
     ivix.append(calDayVIX(day))
-    print ivix
+    #print ivix
     
 from pyecharts import Line
 attr = true_ivix[u'日期'].tolist()
