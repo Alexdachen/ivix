@@ -10,10 +10,10 @@ import pandas as pd
 from scipy import interpolate
 
 
-shibor_rate = pd.read_csv('E:/shibor.csv',index_col=0,encoding='GBK')
-options_data = pd.read_csv('E:/options.csv',index_col=0,encoding='GBK')
-tradeday = pd.read_csv('E:/tradeday.csv',encoding='GBK')
-true_ivix = pd.read_csv('E:/tradeday.csv',encoding='GBK')
+shibor_rate = pd.read_csv('E:/VIX_index/ivix-master/shibor.csv',index_col=0,encoding='GBK')
+options_data = pd.read_csv('E:/VIX_index/ivix-master/options.csv',index_col=0,encoding='GBK')
+tradeday = pd.read_csv('E:/VIX_index/ivix-master/tradeday.csv',encoding='GBK')
+true_ivix = pd.read_csv('E:/VIX_index/ivix-master/ivixx.csv',encoding='GBK')
 
 #==============================================================================
 # 开始计算ivix部分
@@ -216,13 +216,14 @@ def calDayVIX(vixDate):
 ivix = []
 for day in tradeday['DateTime']:
     ivix.append(calDayVIX(day))
+    print ivix
     
 from pyecharts import Line
 attr = true_ivix[u'日期'].tolist()
 line = Line(u"中国波指")
 line.add("中证指数发布", attr, true_ivix[u'收盘价(元)'].tolist(), mark_point=["max"])
 line.add("手动计算", attr, ivix, mark_line=["max",'average'])
-line.render()
+line.render('E:/VIX_index/ivix-master/vix.html')
 
 
 
